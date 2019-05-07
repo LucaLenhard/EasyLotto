@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">EasyLotto</string>
+    <string name="action_settings">Einstellungen</string>
+    <string name="title_activity_login">Anmelden</string>
+    <string name="title_activity_register">Neu Anmelden</string>
+    <string name="title_activity_add_game">Neues Spiel</string>
+    <string name="title_activity_my_games">Meine Spiele</string>
+    <string name="title_activity_all_games">Alle Spiele</string>
+</resources>

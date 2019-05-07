@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".AddGameActivity"
+    tools:showIn="@layout/activity_add_game">
+
+        <LinearLayout
+            android:layout_width="421dp"
+            android:layout_height="556dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+                <EditText
+                    android:id="@+id/SpielnummerText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:text="Spielnummer" />
+
+                <EditText
+                    android:id="@+id/VolumenText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:text="Volumen" />
+
+                <EditText
+                    android:id="@+id/ZiehungText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:text="Ziehung am " />
+
+                <EditText
+                    android:id="@+id/SpieleranzahlText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:text="Spieleranzahl" />
+
+                <EditText
+                    android:id="@+id/ChanceText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:text="Chance in %" />
+
+                <EditText
+                    android:id="@+id/editText6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:text="Anzahl Spielen" />
+
+                <Button
+                    android:id="@+id/addButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:text="Mitspielen" />
+
+        </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
