@@ -12,7 +12,7 @@
     <ImageView
         android:layout_width="56dp"
         android:layout_height="56dp"
-        android:src="@mipmap/ic_launcher_round"
+        android:src="@drawable/easylotto2"
        android:id= "@+id/img_game"/>
     <LinearLayout
         android:layout_width="wrap_content"
@@ -25,7 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
-            android:text="Max. Gewinn:" />
+            android:text="Max. Gewinn" />
         <TextView
             android:textColor="#ffffff"
             android:layout_width="wrap_content"
@@ -46,7 +46,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
-            android:text="Buy-In:" />
+            android:text="Buy-In" />
         <TextView
             android:textColor="#ffffff"
             android:id="@+id/Spieler_anzahl"
@@ -65,7 +65,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
-            android:text="Ziehungsdatum:" />
+            android:text="Ziehungsdatum" />
         <TextView
             android:gravity="right"
             android:textColor="#ffffff"
