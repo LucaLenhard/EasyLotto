@@ -5,6 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="5dp"
+    android:layout_marginTop="10dp"
+    android:id="@+id/spiel_item_id"
     >
 
     <ImageView
@@ -23,6 +25,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
+            android:text="Max. Gewinn:" />
+        <TextView
+            android:textColor="#ffffff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="Volumen"
             android:id="@+id/Volumen_groesse"/>
 
@@ -34,20 +41,31 @@
         android:layout_height="match_parent"
         android:layout_marginLeft="16dp"
         android:orientation="vertical">
-
+        <TextView
+            android:textColor="#ffffff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="Buy-In:" />
         <TextView
             android:textColor="#ffffff"
             android:id="@+id/Spieler_anzahl"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Spieleranzahl" />
+            android:text="Buy-In" />
     </LinearLayout>
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
+        <TextView
+            android:gravity="right"
+            android:textColor="#ffffff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="Ziehungsdatum:" />
         <TextView
             android:gravity="right"
             android:textColor="#ffffff"
