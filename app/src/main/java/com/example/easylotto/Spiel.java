@@ -9,7 +9,7 @@ public class Spiel {
     public Spiel(String Spielnummer, Integer Spieleranzahl, String Ziehungsdatum, Integer Volumen ) {
     this.Volumen = Volumen;
     this.Spielnummer = Spielnummer;
-    this.Spieleranzahl = Spieleranzahl;
+    this.Spieleranzahl = Spieleranzahl; // Jetzt : BuyIN !!
     this.Ziehungsdatum = Ziehungsdatum;
     }
     //Getter

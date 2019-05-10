@@ -1,11 +1,13 @@
 package com.example.easylotto;
 
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +21,7 @@ public class FragmentMyGames extends Fragment {
     View v;
     private RecyclerView myrecyclerview;
     private List<Spiel> lstSpiel;
+    DatabaseHelper mDataBaseHelper;
 
 
     public FragmentMyGames() {
@@ -39,12 +42,23 @@ public class FragmentMyGames extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        mDataBaseHelper = new DatabaseHelper(getActivity());
         lstSpiel = new ArrayList<>();
-        lstSpiel.add(new Spiel("1",10,"31.05.2019",800));
-        lstSpiel.add(new Spiel("2",100,"31.05.2019",1800));
-        lstSpiel.add(new Spiel("3",5,"31.05.2019",200));
-        lstSpiel.add(new Spiel("4",20,"31.05.2019",5000));
+
+        //Beispiel um Dateien in DB hinzuzufügen
+        // ACHTUNG: Spielnummer muss immer anders sein!!1
+        //
+        // boolean insertData = mDataBaseHelper.addData("11",10000,"21.02.1930",100);
+
+        Cursor data = mDataBaseHelper.getData();
+
+        while(data.moveToNext()) {
+            lstSpiel.add(new Spiel(data.getString(0), data.getInt(1), data.getString(2), data.getInt(3)));
+            Log.i("TEST", data.getString(1));
+        }
+
 }
+
+
 
 }
