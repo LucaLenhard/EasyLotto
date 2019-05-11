@@ -48,7 +48,10 @@ public class FragmentMyGames extends Fragment {
         //Beispiel um Dateien in DB hinzuzufügen
         // ACHTUNG: Spielnummer muss immer anders sein!!1
         //
-        // boolean insertData = mDataBaseHelper.addData("11",10000,"21.02.1930",100);
+        //
+       //boolean insertData = mDataBaseHelper.addData("12",10000,"21.02.1930",100);
+        //
+
 
         Cursor data = mDataBaseHelper.getData();
 
