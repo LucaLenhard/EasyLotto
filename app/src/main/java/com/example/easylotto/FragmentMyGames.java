@@ -52,10 +52,18 @@ public class FragmentMyGames extends Fragment {
        //boolean insertData = mDataBaseHelper.addData("12",10000,"21.02.1930",100);
         //
 
-
+        //Use this if DB is empty
+        // mDataBaseHelper.addInit();
+        //
+        // Beispiel für aktives Spiel
+        // mDataBaseHelper.addData(20500,"22.09.2019",200, 1,0);
         Cursor data = mDataBaseHelper.getData();
 
+
+
+
         while(data.moveToNext()) {
+
             lstSpiel.add(new Spiel(data.getString(0), data.getInt(1), data.getString(2), data.getInt(3)));
             Log.i("TEST", data.getString(1));
         }
