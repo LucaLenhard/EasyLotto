@@ -48,6 +48,9 @@ public class MyGamesActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setElevation(0);
 
+
+
+
     }
 
 }

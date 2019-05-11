@@ -45,12 +45,12 @@ public class FragmentMyGames extends Fragment {
         mDataBaseHelper = new DatabaseHelper(getActivity());
         lstSpiel = new ArrayList<>();
 
-        //Beispiel um Dateien in DB hinzuzufügen
-        // ACHTUNG: Spielnummer muss immer anders sein!!1
-        //
-        //
-       //boolean insertData = mDataBaseHelper.addData("12",10000,"21.02.1930",100);
-        //
+
+
+        //Beispiel um Status zu ändern
+       // mDataBaseHelper.updateDataToUserActive(2);
+
+        //Beispiel um Dateien in DB hinzuzufüg
 
         //Use this if DB is empty
         // mDataBaseHelper.addInit();

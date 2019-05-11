@@ -52,9 +52,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 dialog_datum_tv.setText(mData.get(vHolder.getAdapterPosition()).getZiehungsdatum());
                 String Spielnummer_temp = mData.get(vHolder.getAdapterPosition()).getSpielnummer();
                 Toast.makeText(mContext, "Spiel " + Spielnummer_temp + " ausgewählt", Toast.LENGTH_SHORT).show();
+
+
                 myDialog.show();
             }
         });
+
+
+
 
     return vHolder;
     }
