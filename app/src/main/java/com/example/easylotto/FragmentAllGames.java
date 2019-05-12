@@ -56,9 +56,9 @@ public class FragmentAllGames extends Fragment {
         Cursor data = mDataBaseHelper.getData();
 
         while (data.moveToNext()) {
-            if(data.getInt(4) == 1) {
-                lstSpiel.add(new Spiel(data.getString(0), data.getInt(1), data.getString(2), data.getInt(3)));
-                Log.i("TEST", data.getString(1));
+            if(data.getInt(4) == 1){
+            lstSpiel.add(new Spiel(data.getString(0), data.getInt(1), data.getString(2), data.getInt(3)));
+            Log.i("TEST", data.getString(1));
             }
         }
     }

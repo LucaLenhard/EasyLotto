@@ -48,7 +48,7 @@ public class FragmentMyGames extends Fragment {
 
 
         //Beispiel um Status zu ändern
-       // mDataBaseHelper.updateDataToUserActive(2);
+      // mDataBaseHelper.updateDataToUserActive(3);
 
         //Beispiel um Dateien in DB hinzuzufüg
 
