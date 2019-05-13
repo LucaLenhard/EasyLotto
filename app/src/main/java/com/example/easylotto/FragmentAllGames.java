@@ -12,9 +12,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
+
+//ALLGAMES == My GAMES
 public class FragmentAllGames extends Fragment {
 
     View v;
@@ -45,19 +49,25 @@ public class FragmentAllGames extends Fragment {
         lstSpiel = new ArrayList<>();
 
         //Beispiel um Dateien in DB hinzuzufügen
-        // ACHTUNG: Spielnummer muss immer anders sein!!1
         //
         //
-        //boolean insertData = mDataBaseHelper.addData("12",10000,"21.02.1930",100);
+       // mDataBaseHelper.addData(500000,"22.01.2019",55, 1,0);
         //
 
         //Use this if DB is empty
         // mDataBaseHelper.addInit();
+
+
         Cursor data = mDataBaseHelper.getData();
 
+
+
+
         while (data.moveToNext()) {
-            if(data.getInt(4) == 1){
-            lstSpiel.add(new Spiel(data.getString(0), data.getInt(1), data.getString(2), data.getInt(3)));
+            String tempForMethod=data.getString(2);
+            if(data.getInt(4) == 1 && !GameFunctions.getValid(tempForMethod)){
+                Log.d("Boolean ", Boolean.toString(GameFunctions.getValid(tempForMethod)));
+                lstSpiel.add(new Spiel(data.getString(0), data.getInt(1), data.getString(2), data.getInt(3)));
             Log.i("TEST", data.getString(1));
             }
         }

@@ -15,6 +15,10 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
+
+//MYGAMES == All Games
+
+
 public class FragmentMyGames extends Fragment {
 
 
