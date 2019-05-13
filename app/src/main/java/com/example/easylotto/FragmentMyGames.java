@@ -67,10 +67,12 @@ public class FragmentMyGames extends Fragment {
 
 
         while(data.moveToNext()) {
+            String tempForMethod=data.getString(2);
+            if(!GameFunctions.getValid(tempForMethod)) {
+                lstSpiel.add(new Spiel(data.getString(0), data.getInt(1), data.getString(2), data.getInt(3)));
+                Log.i("TEST", data.getString(1));
 
-            lstSpiel.add(new Spiel(data.getString(0), data.getInt(1), data.getString(2), data.getInt(3)));
-            Log.i("TEST", data.getString(1));
-        }
+            }}
 
 }
 
