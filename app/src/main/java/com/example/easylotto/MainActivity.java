@@ -1,6 +1,7 @@
 package com.example.easylotto;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -23,19 +24,25 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-     //   DatabaseHelper mDataBaseHelper = new DatabaseHelper(this);
-       //Cursor data = mDataBaseHelper.getData();
-       //Integer n = 0;
-        //while (data.moveToNext()) {
-         //   n = n+1;
-        //}
 
-        //mDataBaseHelper.deleteWrongShit(n);
+
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+
+        // Import first start
+        SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
+        boolean firstStart = prefs.getBoolean("firstStart", true);
+
+        if (firstStart) {
+            DatabaseHelper mDataBaseHelper = new DatabaseHelper(this);
+            Cursor data = mDataBaseHelper.getData();
+            mDataBaseHelper.addInit();
+            startRegistration();
+        }
 
 
 
@@ -105,24 +112,28 @@ public class MainActivity extends AppCompatActivity
         });
     }
 
-    private void switchToAddGame(){
-        Intent a = new Intent(this,AddGameActivity.class);
+    private void switchToAddGame() {
+        Intent a = new Intent(this, AddGameActivity.class);
         startActivity(a);
     }
-    private void switchTogames(){
-        Intent a = new Intent(this,AllGamesActivity.class);
+
+    private void switchTogames() {
+        Intent a = new Intent(this, AllGamesActivity.class);
         startActivity(a);
     }
-    private void switchToMyGames(){
-        Intent a = new Intent(this,MyGamesActivity.class);
+
+    private void switchToMyGames() {
+        Intent a = new Intent(this, MyGamesActivity.class);
         startActivity(a);
     }
-    private void switchToLogin(){
-        Intent a = new Intent(this,LoginActivity.class);
+
+    private void switchToLogin() {
+        Intent a = new Intent(this, LoginActivity.class);
         startActivity(a);
     }
-    private void switchToRegister(){
-        Intent a = new Intent(this,RegisterActivity.class);
+
+    private void switchToRegister() {
+        Intent a = new Intent(this, RegisterActivity.class);
         startActivity(a);
     }
 
@@ -184,23 +195,43 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
     protected void onStart(Bundle savedInstanceState) {
         super.onStart();
-       Log.i("started", "MainActivity");
+        Log.i("started", "MainActivity");
     }
+
     protected void onPause(Bundle savedInstanceState) {
         super.onPause();
         Log.i("paused", "MainActivity");
     }
+
     protected void onDestroy(Bundle savedInstanceState) {
         super.onDestroy();
         Log.i("destroyed", "MainActivity");
     }
+
     protected void onRestart(Bundle savedInstanceState) {
         super.onRestart();
         Log.i("restarted", "MainActivity");
     }
+
     protected void onStop(Bundle savedInstanceState) {
         super.onStop();
         Log.i("stop", "MainActivity");
-    }}  
+    }
+
+    private void startRegistration() {
+
+        Intent i = new Intent(this, RegistrationPageOne.class);
+        startActivity(i);
+
+        SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putBoolean("firstStart", false);
+        editor.apply();
+    }
+
+
+
+}

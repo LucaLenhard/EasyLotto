@@ -26,6 +26,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
   List<Spiel> mData;
   Dialog myDialog;
   Button btnDialog;
+  Button btnDialogLoeschen;
     DatabaseHelper mDataBaseHelper;
 
 
@@ -68,17 +69,32 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                     public void onClick(View v) {
 
 
+
+
+
                         //Intent a = new Intent(mContext, MyGamesActivity.class);
                        // mContext.startActivity(a);
                         mDataBaseHelper = new DatabaseHelper(mContext);
                         Integer temp = Integer.valueOf(Spielnummer_temp);
                         mDataBaseHelper.updateDataToUserActive(temp);
                         Log.d("test", String.valueOf(temp));
+
                         myDialog.dismiss();
                     }
                 });
+                btnDialogLoeschen = (Button) myDialog.findViewById(R.id.dialog_btn_loeschen);
+                btnDialogLoeschen.setOnClickListener(new View.OnClickListener() {
+                   @Override
+                    public void onClick(View v) {
+                       mDataBaseHelper = new DatabaseHelper(mContext);
+                       Integer temp2 = Integer.valueOf(Spielnummer_temp);
+                       mDataBaseHelper.delete(temp2);
+                       Log.d("Deleted Item", String.valueOf(temp2));
 
+                       myDialog.dismiss();
+                   }
 
+                });
                 myDialog.show();
             }
         });
@@ -88,6 +104,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     return vHolder;
     }
+
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, int i) {

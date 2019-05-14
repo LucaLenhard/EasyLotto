@@ -87,10 +87,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    //public void deleteWrongShit(Integer Spielnummer) {
-    //    SQLiteDatabase db = this.getWritableDatabase();
-   //     String query = "DELETE FROM " + TABLE_NAME + " WHERE " + COL1 + " = '" + Spielnummer + "'";
-     //   db.execSQL(query);
-   // }
+    public void delete(Integer Spielnummer) {
+       SQLiteDatabase db = this.getWritableDatabase();
+        String query = "DELETE FROM " + TABLE_NAME + " WHERE " + COL1 + " = '" + Spielnummer + "'";
+      db.execSQL(query);
+    }
 
 }

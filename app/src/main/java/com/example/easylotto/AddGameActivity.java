@@ -76,7 +76,7 @@ public class AddGameActivity extends AppCompatActivity {
                      Toast.makeText(v.getContext(), "Hinzufügen nicht erfolgreich", Toast.LENGTH_SHORT).show();
 
                  }
-                    if (mEditTextName.getText().toString().trim().length()!= 0 || mAmount != 0) {
+                 if (mEditTextName.getText().toString().trim().length()!= 0 || mAmount != 0) {
 
 
 
@@ -87,9 +87,9 @@ public class AddGameActivity extends AppCompatActivity {
                     Intent a;
                     a = new Intent(v.getContext(), MyGamesActivity.class);
                     startActivity(a);
-                        Toast.makeText(v.getContext(), "Hinzufügen erfolgreich", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(v.getContext(), "Hinzufügen erfolgreich", Toast.LENGTH_SHORT).show();
 
-                    }
+                 }
                 }
             });
         }
