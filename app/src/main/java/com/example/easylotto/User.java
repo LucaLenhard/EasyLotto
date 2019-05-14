@@ -1,17 +1,21 @@
 package com.example.easylotto;
 
 public class User {
-    private String Voraname = "Max";
-    private String Nachname = "Mustermann";
-    private String Passwort = "123";
-    private String email ="max.mustermann@web.de";
-    private Integer Guthaben = 0;
+    private String Benutzername;
+    private String Passwort;
+    private Integer Guthaben = 1000;
 
-    public User(String Vorname, String Nachname, String Passwort, String email, Integer Guthaben) {
-       this.Voraname = Vorname;
-       this.Nachname = Nachname;
+    public User(String Benutzername, String Passwort,Integer Guthaben) {
+       this.Benutzername = Benutzername;
        this.Passwort = Passwort;
-       this.email = email;
        this.Guthaben = Guthaben;
+    }
+
+    public boolean checkUser(String eingabePW, String eingabeBenutzername) {
+
+        if (eingabePW == this.Passwort && eingabeBenutzername == this.Benutzername)
+            return true;
+        else
+            return false;
     }
 }
