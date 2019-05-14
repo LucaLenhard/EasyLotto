@@ -51,6 +51,7 @@ public class FragmentMyGames extends Fragment {
 
 
 
+
         //Beispiel um Status zu ändern
       // mDataBaseHelper.updateDataToUserActive(3);
 
