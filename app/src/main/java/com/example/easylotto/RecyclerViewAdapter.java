@@ -27,7 +27,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
   Dialog myDialog;
   Button btnDialog;
   Button btnDialogLoeschen;
-    DatabaseHelper mDataBaseHelper;
+  DatabaseHelper mDataBaseHelper;
 
 
     public RecyclerViewAdapter(Context mContext, List<Spiel> mData) {

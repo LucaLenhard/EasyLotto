@@ -10,10 +10,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-
+    private EditText EditBenutzernameLogin;
+    private EditText EditPasswortLogin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +37,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                EditBenutzernameLogin = findViewById(R.id.edittext_benutzernameLogin);
+                EditPasswortLogin = findViewById(R.id.edittext_passwortLogin);
+                String Benutzername = String.valueOf(EditBenutzernameLogin.getText());
+                String Passwort = String.valueOf(EditPasswortLogin.getText());
 
                 switchToMyGames();
             }

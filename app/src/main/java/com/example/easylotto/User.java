@@ -5,10 +5,10 @@ public class User {
     private String Passwort;
     private Integer Guthaben = 1000;
 
-    public User(String Benutzername, String Passwort,Integer Guthaben) {
+    public User(String Benutzername, String Passwort) {
        this.Benutzername = Benutzername;
        this.Passwort = Passwort;
-       this.Guthaben = Guthaben;
+       this.Guthaben = 1000;
     }
 
     public boolean checkUser(String eingabePW, String eingabeBenutzername) {
