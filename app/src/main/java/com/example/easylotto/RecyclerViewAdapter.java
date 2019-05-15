@@ -1,5 +1,6 @@
 package com.example.easylotto;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
@@ -78,6 +79,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                         Integer temp = Integer.valueOf(Spielnummer_temp);
                         mDataBaseHelper.updateDataToUserActive(temp);
                         Log.d("test", String.valueOf(temp));
+                        ((Activity)mContext).recreate();
 
                         myDialog.dismiss();
                     }
@@ -91,6 +93,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                        mDataBaseHelper.delete(temp2);
                        Log.d("Deleted Item", String.valueOf(temp2));
                        notifyDataSetChanged();
+
+                       ((Activity)mContext).recreate();
                        myDialog.dismiss();
                    }
 
