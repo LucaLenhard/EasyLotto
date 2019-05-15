@@ -79,8 +79,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                         Integer temp = Integer.valueOf(Spielnummer_temp);
                         mDataBaseHelper.updateDataToUserActive(temp);
                         Log.d("test", String.valueOf(temp));
-                        ((Activity)mContext).recreate();
-
+                        ((Activity)mContext).finish();
+                        ((Activity)mContext).overridePendingTransition(0, 0);
+                        ((Activity)mContext).startActivity(((Activity) mContext).getIntent());
+                        ((Activity)mContext).overridePendingTransition(0, 0);
                         myDialog.dismiss();
                     }
                 });
@@ -94,7 +96,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                        Log.d("Deleted Item", String.valueOf(temp2));
                        notifyDataSetChanged();
 
-                       ((Activity)mContext).recreate();
+                       ((Activity)mContext).finish();
+                       ((Activity)mContext).overridePendingTransition(0, 0);
+                       ((Activity)mContext).startActivity(((Activity) mContext).getIntent());
+                       ((Activity)mContext).overridePendingTransition(0, 0);
+
                        myDialog.dismiss();
                    }
 

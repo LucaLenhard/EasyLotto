@@ -1,6 +1,9 @@
 package com.example.easylotto;
 
 import android.app.Activity;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -8,6 +11,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -41,11 +45,6 @@ public class AddGameActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
 
-
-
-
-            RecyclerView recyclerView = findViewById(R.id.recycler_view_gamehistory);
-            recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
             mEditTextName = findViewById(R.id.edittext_name);
             mTextViewAmount = findViewById(R.id.textview_amount);
@@ -87,6 +86,7 @@ public class AddGameActivity extends AppCompatActivity {
                     finish();
                      Intent returnIntent = new Intent();
                      returnIntent.putExtra("result",temp2);
+                    // addNotification();
                      setResult(Activity.RESULT_OK,returnIntent);
                     Toast.makeText(v.getContext(), "Hinzufügen erfolgreich", Toast.LENGTH_SHORT).show();
 
@@ -107,6 +107,26 @@ public class AddGameActivity extends AppCompatActivity {
             }
         }
 
+
+
+    /*private void addNotification() {
+        // Builds your notification
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this,1)
+                .setSmallIcon(R.mipmap.ic_launcher_round)
+                .setContentTitle("Neues Spiel wurde hinzugefügt")
+                .setContentText("Schau schnell nach!");
+
+        // Creates the intent needed to show the notification
+        Intent notificationIntent = new Intent(this, MyGamesActivity.class);
+        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        builder.setContentIntent(contentIntent);
+
+        // Add as notification
+        NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        manager.notify(0, builder.build());
+    }
+*/
     }
 
 
