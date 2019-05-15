@@ -1,5 +1,6 @@
 package com.example.easylotto;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -84,9 +85,9 @@ public class AddGameActivity extends AppCompatActivity {
                         Integer temp2 = temp * mAmount;
                       mDataBaseHelper.addData(temp2,mEditTextName.getText().toString(),mAmount, 0,0);
                     finish();
-                    Intent a;
-                    a = new Intent(v.getContext(), MyGamesActivity.class);
-                    startActivity(a);
+                     Intent returnIntent = new Intent();
+                     returnIntent.putExtra("result",temp2);
+                     setResult(Activity.RESULT_OK,returnIntent);
                     Toast.makeText(v.getContext(), "Hinzufügen erfolgreich", Toast.LENGTH_SHORT).show();
 
                  }

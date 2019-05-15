@@ -90,7 +90,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                        Integer temp2 = Integer.valueOf(Spielnummer_temp);
                        mDataBaseHelper.delete(temp2);
                        Log.d("Deleted Item", String.valueOf(temp2));
-
+                       notifyDataSetChanged();
                        myDialog.dismiss();
                    }
 

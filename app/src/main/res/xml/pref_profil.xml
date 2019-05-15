@@ -1,8 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- NOTE: Hide buttons to simplify the UI. Users can touch outside the dialog to
-         dismiss it. -->
-    <!-- NOTE: ListPreference's summary should be set to its value by the activity code. -->
+    <EditTextPreference
+        android:title="Vornamen ändern"
+        android:key="vorname"
+        />
+    <EditTextPreference
+        android:title="Nachnamen ändern"
+        android:key="nachname"
+
+        />
+
+
+
     <ListPreference
         android:defaultValue="180"
         android:entries="@array/pref_sync_frequency_titles"

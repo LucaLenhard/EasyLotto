@@ -1,9 +1,13 @@
 package com.example.easylotto;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.EditTextPreference;
+import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
@@ -12,6 +16,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -42,13 +47,17 @@ public class MyGamesActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
+
+
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+
                 Intent a = new Intent(view.getContext(), AddGameActivity.class);
-                startActivity(a);
+                startActivityForResult(a,1);
+
             }
         });
 
@@ -56,8 +65,8 @@ public class MyGamesActivity extends AppCompatActivity {
         viewpager = (ViewPager) findViewById(R.id.viewpager_id);
         adapter = new ViewPagerAdapter(getSupportFragmentManager());
 
-        adapter.AddFragment(new FragmentMyGames(), "All Games");
-        adapter.AddFragment(new FragmentAllGames(), "My Games");
+        adapter.AddFragment(new FragmentMyGames(), "Alle Spiele");
+        adapter.AddFragment(new FragmentAllGames(), "Meine Spiele");
 
         viewpager.setAdapter(adapter);
         tablayout.setupWithViewPager(viewpager);
@@ -88,8 +97,24 @@ public class MyGamesActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if (requestCode == 1) {
+            if(resultCode == Activity.RESULT_OK){
+                Log.d("Erfolgreich", "hinzugefügt");
+                finish();
+                startActivity(getIntent());
+
+            }
+            if (resultCode == Activity.RESULT_CANCELED) {
+                Log.d("Auch Erfolgreich", "hoffe ich");
+                finish();
+                startActivity(getIntent());
 
 
-
+            }
+        }
+    }//onActivityResult
 
 }
