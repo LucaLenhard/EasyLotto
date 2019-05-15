@@ -8,6 +8,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -37,12 +38,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                EditBenutzernameLogin = findViewById(R.id.edittext_benutzernameLogin);
-                EditPasswortLogin = findViewById(R.id.edittext_passwortLogin);
-                String Benutzername = String.valueOf(EditBenutzernameLogin.getText());
-                String Passwort = String.valueOf(EditPasswortLogin.getText());
-
-                switchToMyGames();
+                login();
             }
         });
 
@@ -63,6 +59,22 @@ public class MainActivity extends AppCompatActivity {
         startActivity(a);
     }
 
+    public void login() {
+
+        EditBenutzernameLogin = findViewById(R.id.edittext_benutzernameLogin);
+        EditPasswortLogin = findViewById(R.id.edittext_passwortLogin);
+        String Benutzername = String.valueOf(EditBenutzernameLogin.getText());
+        String Passwort = String.valueOf(EditPasswortLogin.getText());
+
+        SharedPreferences pref = getApplicationContext().getSharedPreferences("TaskerPrefs", 0);
 
 
+            if (pref.getString("benutzername", "").equals(Benutzername) && pref.getString("passwort", "").equals(Passwort)) {
+                Log.d("Login", "Login Erfolgreich");
+                switchToMyGames();
+                finish();
+            } else {
+                Toast.makeText(this, "Benutzername und/oder Passwort falsch", Toast.LENGTH_SHORT).show();
+            }
+    }
 }

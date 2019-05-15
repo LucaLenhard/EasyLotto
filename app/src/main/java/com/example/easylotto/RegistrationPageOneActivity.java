@@ -1,8 +1,10 @@
 package com.example.easylotto;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -31,11 +33,19 @@ public class RegistrationPageOneActivity extends AppCompatActivity {
                 String Passwort = String.valueOf(EditPasswort.getText());
 
                 if (EditBenutzername.getText().toString().trim().length()!= 0 || EditPasswort.getText().toString().trim().length()!= 0) {
-                   User actUser = new User(Benutzername, Passwort);
-                    Toast.makeText(v.getContext(), "Registrierung war erfolgreich", Toast.LENGTH_SHORT).show();
+                    SharedPreferences pref = getApplicationContext().getSharedPreferences("TaskerPrefs", 0);
+                    SharedPreferences.Editor editor = pref.edit();
+
+                    editor.putString("benutzername", Benutzername);
+                    editor.putString("passwort", Passwort);
+                    editor.commit();
+
+                    Toast.makeText(v.getContext(), "Herzlich Willkommen " + Benutzername, Toast.LENGTH_SHORT).show();
+                    Log.d("Registrierung", "Registrierung erfolgreich");
                     switchToMyGames();
+                    finish();
                 }
-                if (EditBenutzername.getText().toString().trim().length() == 0 || EditPasswort.getText().toString().trim().length()== 0) {
+                if (Benutzername == null || Passwort == null) {
                     Toast.makeText(v.getContext(), "Registrierung war nicht erfolgreich", Toast.LENGTH_SHORT).show();
 
                 }
