@@ -23,19 +23,12 @@ public class MyGamesActivity extends AppCompatActivity {
     private ViewPagerAdapter adapter;
 
 
-
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_games);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-
 
 
         FloatingActionButton fab = findViewById(R.id.fab);

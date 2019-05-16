@@ -87,6 +87,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Log.d(TAG, "update UserActive in game" + Spielnummer);
         db.execSQL(query);
     }
+    public void updateUserWonGame(Integer Spielnummer){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Integer active = 1;
+        String query = "UPDATE " + TABLE_NAME + " SET " + COL6 + " = '"+ active +"' WHERE " + COL1 + " = '" + Spielnummer + "'";
+        Log.d(TAG, "update User won in game" + Spielnummer);
+        db.execSQL(query);
+    }
 
 
     public void delete(Integer Spielnummer) {
