@@ -86,7 +86,7 @@ public class AddGameActivity extends AppCompatActivity {
                     finish();
                      Intent returnIntent = new Intent();
                      returnIntent.putExtra("result",temp2);
-                    // addNotification();
+                    //       addNotification();
                      setResult(Activity.RESULT_OK,returnIntent);
                     Toast.makeText(v.getContext(), "Hinzufügen erfolgreich", Toast.LENGTH_SHORT).show();
 
