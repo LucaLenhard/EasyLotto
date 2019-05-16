@@ -96,6 +96,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                         ((Activity)mContext).overridePendingTransition(0, 0);
                         ((Activity)mContext).startActivity(((Activity) mContext).getIntent());
                         ((Activity)mContext).overridePendingTransition(0, 0);
+
                         myDialog.dismiss();
                     }
                 });
@@ -107,14 +108,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                        Integer temp2 = Integer.valueOf(Spielnummer_temp);
                        mDataBaseHelper.delete(temp2);
                        Log.d("Deleted Item", String.valueOf(temp2));
-                       notifyDataSetChanged();
 
-
-
-                       ((Activity)mContext).finish();
-                       ((Activity)mContext).overridePendingTransition(0, 0);
-                       ((Activity)mContext).startActivity(((Activity) mContext).getIntent());
-                       ((Activity)mContext).overridePendingTransition(0, 0);
+                       mData.remove(vHolder.getAdapterPosition());
+                       notifyItemRemoved(vHolder.getAdapterPosition());
 
                        myDialog.dismiss();
                    }

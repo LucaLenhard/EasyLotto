@@ -24,10 +24,6 @@
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings" />
         <activity
-            android:name=".AllGamesActivity"
-            android:label="@string/title_activity_all_games"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".MyGamesActivity"
             android:label="@string/title_activity_my_games"
             android:theme="@style/AppTheme.NoActionBar" />
