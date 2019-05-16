@@ -35,6 +35,10 @@
             android:name=".AddGameActivity"
             android:label="@string/title_activity_add_game"
             android:theme="@style/AppTheme.NoActionBar" />
-    </application>
 
+
+        <receiver android:name=".AlertReceiver" />
+
+    </application>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 </manifest>

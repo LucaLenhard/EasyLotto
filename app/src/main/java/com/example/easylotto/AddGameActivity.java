@@ -1,6 +1,8 @@
 package com.example.easylotto;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
+import android.app.AlarmManager;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -85,6 +87,7 @@ public class AddGameActivity extends AppCompatActivity {
                       mDataBaseHelper.addData(temp2,mEditTextName.getText().toString(),mAmount, 0,0);
                     finish();
                      Intent returnIntent = new Intent();
+                    testAlarm();
                      returnIntent.putExtra("result",temp2);
                     //       addNotification();
                      setResult(Activity.RESULT_OK,returnIntent);
@@ -105,6 +108,15 @@ public class AddGameActivity extends AppCompatActivity {
                 mAmount =mAmount-5;
                 mTextViewAmount.setText(String.valueOf(mAmount));
             }
+        }
+
+
+        private void testAlarm() {
+
+            AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+            Intent intent = new Intent(this, AlertReceiver.class);
+            PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 1, intent, 0);
+            alarmManager.set(AlarmManager.RTC_WAKEUP, 100, pendingIntent);
         }
 
 

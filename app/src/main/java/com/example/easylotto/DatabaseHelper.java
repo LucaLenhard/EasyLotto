@@ -21,7 +21,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COL6 = "UserGewonnen";
 
     public DatabaseHelper(Context context) {
-        super(context, TABLE_NAME, null, 6);
+        super(context, TABLE_NAME, null, 10);
     }
 
     @Override
