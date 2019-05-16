@@ -17,6 +17,7 @@ public class RegistrationPageOneActivity extends AppCompatActivity {
     private EditText EditPasswort;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +43,7 @@ public class RegistrationPageOneActivity extends AppCompatActivity {
 
                     editor.putString("benutzername", Benutzername);
                     editor.putString("passwort", Passwort);
+                    editor.putInt("guthaben", 1000);
                     editor.commit();
 
                     Toast.makeText(v.getContext(), "Herzlich Willkommen " + Benutzername, Toast.LENGTH_SHORT).show();
@@ -59,9 +61,6 @@ public class RegistrationPageOneActivity extends AppCompatActivity {
 
 
     }
-
-
-
 
     private void switchToMyGames() {
         Intent a = new Intent(this, MyGamesActivity.class);

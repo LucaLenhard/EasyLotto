@@ -34,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
 
         if (firstStart) {
             DatabaseHelper mDataBaseHelper = new DatabaseHelper(this);
-            Cursor data = mDataBaseHelper.getData();
             mDataBaseHelper.addInit();
             startRegistration();
         }

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.annotation.NonNull;
@@ -42,6 +43,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         v = LayoutInflater.from(mContext).inflate(R.layout.item_gamefinal, viewGroup, false);
         final MyViewHolder vHolder = new MyViewHolder(v);
 
+
+
         //Dialog init
 
         myDialog = new Dialog(mContext);
@@ -61,6 +64,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 dialog_buyin_tv.setText(Integer.toString(mData.get(vHolder.getAdapterPosition()).getSpieleranzahl()));
                 dialog_datum_tv.setText(mData.get(vHolder.getAdapterPosition()).getZiehungsdatum());
                 final String Spielnummer_temp = mData.get(vHolder.getAdapterPosition()).getSpielnummer();
+                final Integer Buyin = mData.get(vHolder.getAdapterPosition()).getSpieleranzahl();
+
+
+
                 Toast.makeText(mContext, "Spiel " + Spielnummer_temp + " ausgewählt", Toast.LENGTH_SHORT).show();
 
                 btnDialog = (Button) myDialog.findViewById(R.id.dialog_btn_mitspielen);
@@ -69,16 +76,22 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                     @Override
                     public void onClick(View v) {
 
-
-
-
-
                         //Intent a = new Intent(mContext, MyGamesActivity.class);
                        // mContext.startActivity(a);
                         mDataBaseHelper = new DatabaseHelper(mContext);
                         Integer temp = Integer.valueOf(Spielnummer_temp);
                         mDataBaseHelper.updateDataToUserActive(temp);
-                        Log.d("test", String.valueOf(temp));
+
+                        SharedPreferences sp = mContext.getSharedPreferences("TaskerPrefs", mContext.MODE_PRIVATE);
+                        int guthaben = sp.getInt("guthaben", 0);
+                        Integer neuesGuthaben = guthaben - Buyin;
+
+                        sp.edit().putInt("guthaben", neuesGuthaben).commit();
+
+                        Log.d("Guthaben", String.valueOf(guthaben));
+                        Log.d("Buyin", String.valueOf(Buyin));
+                        Log.d("Mitgespielt bei ", String.valueOf(temp));
+                        Log.d("Guthaben angepeasst", String.valueOf(neuesGuthaben));
                         ((Activity)mContext).finish();
                         ((Activity)mContext).overridePendingTransition(0, 0);
                         ((Activity)mContext).startActivity(((Activity) mContext).getIntent());
@@ -95,6 +108,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                        mDataBaseHelper.delete(temp2);
                        Log.d("Deleted Item", String.valueOf(temp2));
                        notifyDataSetChanged();
+
+
 
                        ((Activity)mContext).finish();
                        ((Activity)mContext).overridePendingTransition(0, 0);
@@ -146,4 +161,5 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     }
 }
+
 }

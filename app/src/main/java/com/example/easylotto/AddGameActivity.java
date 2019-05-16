@@ -7,6 +7,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -18,6 +19,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,6 +38,7 @@ public class AddGameActivity extends AppCompatActivity {
     private TextView mTextViewAmount;
     private int mAmount = 0;
     DatabaseHelper mDataBaseHelper;
+    private TextView mTextViewGuthaben;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,9 +50,16 @@ public class AddGameActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
 
+        SharedPreferences sp = getSharedPreferences("TaskerPrefs", 0);
+        int guthaben = sp.getInt("guthaben", 0);
+            Log.d("Guthaben: ", Integer.toString(guthaben));
 
             mEditTextName = findViewById(R.id.edittext_name);
             mTextViewAmount = findViewById(R.id.textview_amount);
+            mTextViewGuthaben = findViewById(R.id.guthaben_textview);
+
+            mTextViewGuthaben.setText(Integer.toString(guthaben));
+
 
             Button buttonIncrease = findViewById(R.id.button_increase);
             Button buttonDecrease = findViewById(R.id.button_decrease);
@@ -82,14 +92,16 @@ public class AddGameActivity extends AppCompatActivity {
 
 
 
-                        Integer temp = (int)(Math.random()*100);
-                        Integer temp2 = temp * mAmount;
+                     Integer temp = (int)(Math.random()*100);
+                     Integer temp2 = temp * mAmount;
                       mDataBaseHelper.addData(temp2,mEditTextName.getText().toString(),mAmount, 0,0);
                     finish();
+
                      Intent returnIntent = new Intent();
                     testAlarm();
                      returnIntent.putExtra("result",temp2);
-                    //       addNotification();
+
+
                      setResult(Activity.RESULT_OK,returnIntent);
                     Toast.makeText(v.getContext(), "Hinzufügen erfolgreich", Toast.LENGTH_SHORT).show();
 
@@ -118,27 +130,6 @@ public class AddGameActivity extends AppCompatActivity {
             PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 1, intent, 0);
             alarmManager.set(AlarmManager.RTC_WAKEUP, 100, pendingIntent);
         }
-
-
-
-    /*private void addNotification() {
-        // Builds your notification
-
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this,1)
-                .setSmallIcon(R.mipmap.ic_launcher_round)
-                .setContentTitle("Neues Spiel wurde hinzugefügt")
-                .setContentText("Schau schnell nach!");
-
-        // Creates the intent needed to show the notification
-        Intent notificationIntent = new Intent(this, MyGamesActivity.class);
-        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-        builder.setContentIntent(contentIntent);
-
-        // Add as notification
-        NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        manager.notify(0, builder.build());
-    }
-*/
     }
 
 

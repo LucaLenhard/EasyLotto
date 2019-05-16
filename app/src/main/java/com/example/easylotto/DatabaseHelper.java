@@ -21,7 +21,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COL6 = "UserGewonnen";
 
     public DatabaseHelper(Context context) {
-        super(context, "/sdcard/"+TABLE_NAME, null, 10);
+        super(context, "/sdcard/"+TABLE_NAME, null, 22);
         SQLiteDatabase.openOrCreateDatabase("/sdcard/"+TABLE_NAME,null);
     }
 
@@ -65,17 +65,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor data = db.rawQuery(query, null);
         return data;
     }
-    //only use this if DB is empty
+
+
     public void addInit() {
-        addData(10000,"31.05.2019",100, 0,0);
-        addData(5000,"21.06.2019",50, 0,0);
-        addData(80000,"09.09.2019",80, 0,0);
-        addData(100000,"14.07.2019",1000, 0,0);
-        addData(1000,"22.09.2019",10, 0,0);
+        addData(10000,"27.05.2019",100,0,0);
+        addData(50000,"27.05.2019",50,0,0);
+        addData(80000,"27.05.2019",80,0,0);
+        addData(60000,"27.05.2019",100,0,0);
+        addData(30000,"27.05.2019",30,0,0);
+        addData(40000,"27.05.2019",50,0,0);
+
 
     }
-
-    //funktioniert !!
 
 
 
