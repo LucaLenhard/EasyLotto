@@ -27,7 +27,6 @@ public class FragmentMyGames extends Fragment {
     private List<Spiel> lstSpiel;
     DatabaseHelper mDataBaseHelper;
 
-
     public FragmentMyGames() {
 
     }
@@ -49,9 +48,6 @@ public class FragmentMyGames extends Fragment {
         mDataBaseHelper = new DatabaseHelper(getActivity());
         lstSpiel = new ArrayList<>();
 
-
-
-
         //Beispiel um Status zu ändern
       // mDataBaseHelper.updateDataToUserActive(3);
 
@@ -63,8 +59,6 @@ public class FragmentMyGames extends Fragment {
         // Beispiel für aktives Spiel
         // mDataBaseHelper.addData(20500,"22.09.2019",200, 1,0);
         Cursor data = mDataBaseHelper.getData();
-
-
 
         while(data.moveToNext()) {
             String tempForMethod=data.getString(2);
