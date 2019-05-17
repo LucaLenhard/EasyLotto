@@ -85,7 +85,7 @@ public class GameFunctions {
 
             double volumen_double = (double) volumen;
             double buyin_double    = (double) buyin;
-            int chance = (int) (buyin_double / volumen_double) * 100;
+            int chance = (int) ((buyin_double / volumen_double) * 100) + 10;
             Integer WinningNumber = (int) (Math.random() * 100);
 
             mDatabaseHelper = new DatabaseHelper(context);

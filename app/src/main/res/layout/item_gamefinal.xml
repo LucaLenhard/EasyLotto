@@ -25,12 +25,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
-            android:text="Max. Gewinn" />
+            android:text="@string/max_gewinn" />
         <TextView
             android:textColor="#ffffff"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Volumen"
+            android:text="@string/volumen"
             android:id="@+id/Volumen_groesse"/>
 
 
@@ -65,7 +65,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
-            android:text="Ziehungsdatum" />
+            android:text="@string/ziehungsdatum" />
         <TextView
             android:gravity="right"
             android:textColor="#ffffff"

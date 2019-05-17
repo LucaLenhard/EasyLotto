@@ -21,7 +21,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COL6 = "UserGewonnen";
 
     public DatabaseHelper(Context context) {
-        super(context, "/sdcard/"+TABLE_NAME, null, 26);
+        super(context, "/sdcard/"+TABLE_NAME, null, 27);
         SQLiteDatabase.openOrCreateDatabase("/sdcard/"+TABLE_NAME,null);
     }
 

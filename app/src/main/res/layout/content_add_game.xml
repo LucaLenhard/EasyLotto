@@ -24,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp"
-            android:text="Neues Spiel hinzufügen"
+            android:text="@string/add_new_game"
             android:textAlignment="center"
             android:textSize="20dp"
             android:textStyle="bold" />
@@ -39,7 +39,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Datum"
+                    android:text="@string/date"
                     android:textSize="20dp" />
 
                 <EditText
@@ -63,7 +63,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Buyin"
+                    android:text="@string/buyin"
                     android:textSize="20dp" />
 
 
@@ -107,7 +107,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="16dp"
-                    android:text="Ihr Guthaben beträgt"
+                    android:text="@string/money_left"
                     android:textSize="20dp"
                     android:textStyle="bold" />
 
