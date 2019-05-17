@@ -63,7 +63,7 @@ public class FragmentMyGames extends Fragment {
         while(data.moveToNext()) {
             String tempForMethod=data.getString(2);
             GameFunctions.getWinner(data, getContext());
-            if(!GameFunctions.getValid(tempForMethod) && Integer.parseInt(data.getString(4))==0) {
+            if(!GameFunctions.getValid(tempForMethod) && Integer.parseInt(data.getString(4))==0 && Integer.parseInt(data.getString(5))==0) {
                 lstSpiel.add(new Spiel(data.getString(0), data.getInt(1), data.getString(2), data.getInt(3)));
                 Log.i("Hinzugefügt", data.getString(1));
 
