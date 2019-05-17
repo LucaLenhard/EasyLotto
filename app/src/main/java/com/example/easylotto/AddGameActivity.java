@@ -92,7 +92,7 @@ public class AddGameActivity extends AppCompatActivity {
 
                      Integer temp = (int)(Math.random()*100);
                      Integer temp2 = temp * mAmount;
-                      mDataBaseHelper.addData(temp2,mEditTextName.getText().toString(),mAmount, 0,0);
+                      mDataBaseHelper.addData(temp2,mEditTextName.getText().toString(),mAmount, 0);
                     finish();
 
                      Intent returnIntent = new Intent();

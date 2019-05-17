@@ -48,6 +48,9 @@ public class MyGamesActivity extends AppCompatActivity {
 
         adapter.AddFragment(new FragmentMyGames(), "Alle Spiele");
         adapter.AddFragment(new FragmentAllGames(), "Meine Spiele");
+        adapter.AddFragment(new FragmentWonGames(), "Gewonnen");
+        adapter.AddFragment(new FragmentLostGames(), "Verloren");
+
 
         viewpager.setAdapter(adapter);
         tablayout.setupWithViewPager(viewpager);

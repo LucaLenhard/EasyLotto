@@ -3,12 +3,10 @@ package com.example.easylotto;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.annotation.NonNull;
-import android.support.design.widget.TabLayout;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -61,10 +59,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 TextView dialog_buyin_tv = (TextView) myDialog.findViewById(R.id.dialog_buyin_id);
                 TextView dialog_datum_tv = (TextView) myDialog.findViewById(R.id.dialog_datum_id);
                 dialog_volumen_tv.setText(Integer.toString(mData.get(vHolder.getAdapterPosition()).getVolumen()));
-                dialog_buyin_tv.setText(Integer.toString(mData.get(vHolder.getAdapterPosition()).getSpieleranzahl()));
+                dialog_buyin_tv.setText(Integer.toString(mData.get(vHolder.getAdapterPosition()).getBuyin()));
                 dialog_datum_tv.setText(mData.get(vHolder.getAdapterPosition()).getZiehungsdatum());
                 final String Spielnummer_temp = mData.get(vHolder.getAdapterPosition()).getSpielnummer();
-                final Integer Buyin = mData.get(vHolder.getAdapterPosition()).getSpieleranzahl();
+                final Integer Buyin = mData.get(vHolder.getAdapterPosition()).getBuyin();
 
 
 
@@ -92,6 +90,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                         Log.d("Buyin", String.valueOf(Buyin));
                         Log.d("Mitgespielt bei ", String.valueOf(temp));
                         Log.d("Guthaben angepeasst", String.valueOf(neuesGuthaben));
+
                         ((Activity)mContext).finish();
                         ((Activity)mContext).overridePendingTransition(0, 0);
                         ((Activity)mContext).startActivity(((Activity) mContext).getIntent());
@@ -131,7 +130,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, int i) {
 
         myViewHolder.tv_volumen.setText(Integer.toString(mData.get(i).getVolumen()));
-        myViewHolder.tv_spieleranzahl.setText(Integer.toString(mData.get(i).getSpieleranzahl()));
+        myViewHolder.tv_spieleranzahl.setText(Integer.toString(mData.get(i).getBuyin()));
         myViewHolder.tv_ziehungsdatum.setText(mData.get(i).getZiehungsdatum());
 
     }

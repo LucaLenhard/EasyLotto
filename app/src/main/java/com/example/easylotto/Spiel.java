@@ -3,19 +3,19 @@ package com.example.easylotto;
 public class Spiel {
     private Integer Volumen;
     private String Spielnummer;
-    private Integer Spieleranzahl;
+    private Integer buyin;
     private String Ziehungsdatum;
     private Integer UserAktiv;
-    private Integer UserGewonnen;
+    private String UserGewonnen;
 
-    public Spiel(String Spielnummer, Integer Spieleranzahl, String Ziehungsdatum, Integer Volumen ) {
-    this.Volumen = Volumen;
-    this.Spielnummer = Spielnummer;
-    this.Spieleranzahl = Spieleranzahl; // Jetzt : BuyIN !!
-    this.Ziehungsdatum = Ziehungsdatum;
-    this.UserAktiv = 0; ///false; 1 for true
-    this.UserGewonnen =0; //false; 1 for true
-    }
+    public Spiel(String Spielnummer, Integer buyin, String Ziehungsdatum, Integer Volumen, Integer useraktiv, String usergewonnen) {
+        this.Volumen = Volumen;
+        this.Spielnummer = Spielnummer;
+        this.buyin = buyin; // Jetzt : BuyIN !!
+        this.Ziehungsdatum = Ziehungsdatum;
+        this.UserAktiv = useraktiv; ///false; 1 for true
+        this.UserGewonnen =usergewonnen; //false; 1 for true
+    } //Indention is important kids
     //Getter
 
     public Integer getVolumen() {
@@ -26,8 +26,8 @@ public class Spiel {
         return Spielnummer;
     }
 
-    public Integer getSpieleranzahl() {
-        return Spieleranzahl;
+    public Integer getBuyin() {
+        return buyin;
     }
 
     public String getZiehungsdatum() {
@@ -46,7 +46,7 @@ public class Spiel {
         return UserAktiv;
     }
 
-    public Integer getUserGewonnen() {
+    public String getUserGewonnen() {
         return UserGewonnen;
     }
 
@@ -54,12 +54,12 @@ public class Spiel {
         UserAktiv = userAktiv;
     }
 
-    public void setUserGewonnen(Integer userGewonnen) {
+    public void setUserGewonnen(String userGewonnen) {
         UserGewonnen = userGewonnen;
     }
 
-    public void setSpieleranzahl(Integer spieleranzahl) {
-        Spieleranzahl = spieleranzahl;
+    public void setBuyin(Integer buyin) {
+        this.buyin = buyin;
     }
 
     public void setZiehungsdatum(String ziehungsdatum) {
