@@ -75,37 +75,40 @@ public class GameFunctions {
         Integer IntegerCurrentDate = Integer.parseInt(dateToday);
         Integer IntegerCurrentMonth = Integer.parseInt(monthToday);
         Integer IntegerCurrentYear = Integer.parseInt(yearToday);
+        Log.d("status Spiel" + data.getString(1), " "+ data.getString(5));
+        if (data.getString(5).equals("0")) {
+            if (IntegerYear.intValue() == IntegerCurrentYear.intValue() && IntegerMonth.intValue() == IntegerCurrentMonth.intValue() && IntegerDate.intValue() == IntegerCurrentDate.intValue()) {
+                Integer buyin = data.getInt(1);
+                Integer volumen = data.getInt(3);
+                Log.d("fin. game vol:", String.valueOf(volumen));
+                Log.d("fin. game buyin:", String.valueOf(buyin));
 
+                double volumen_double = (double) volumen;
+                double buyin_double = (double) buyin;
+                int chance = (int) ((buyin_double / volumen_double) * 100) + 2;
+                Integer WinningNumber = (int) (Math.random() * 100);
+                Log.d("chance", "" + chance);
+                Log.d("winningnumbers", "" + WinningNumber);
 
-        if (IntegerYear.intValue() == IntegerCurrentYear.intValue() && IntegerMonth.intValue() == IntegerCurrentMonth.intValue() && IntegerDate.intValue() == IntegerCurrentDate.intValue()) {
-            Integer buyin = data.getInt(1);
-            Integer volumen = data.getInt(3);
-            Log.d("fin. game vol:", String.valueOf(volumen));
-            Log.d("fin. game buyin:", String.valueOf(buyin));
+                mDatabaseHelper = new DatabaseHelper(context);
+                if (chance >= WinningNumber && data.getInt(5) == 0) {
+                    mDatabaseHelper.updateUserWonGame(data.getInt(0));
+                    Log.d("ID Spiel ", String.valueOf(data.getInt(0)));
 
-            double volumen_double = (double) volumen;
-            double buyin_double    = (double) buyin;
-            int chance = (int) ((buyin_double / volumen_double) * 100) + 10;
-            Integer WinningNumber = (int) (Math.random() * 100);
+                    SharedPreferences sp = context.getSharedPreferences("TaskerPrefs", context.MODE_PRIVATE);
+                    int guthaben = sp.getInt("guthaben", 0);
+                    Log.d("GUTHABEN", String.valueOf(guthaben));
+                    Log.d("VOLUMEN ", String.valueOf(volumen));
+                    int neuesGuthaben = guthaben + volumen;
 
-            mDatabaseHelper = new DatabaseHelper(context);
-            if (chance >= WinningNumber && data.getInt(5)==0) {
-                mDatabaseHelper.updateUserWonGame(data.getInt(0));
-                Log.d("ID Spiel ", String.valueOf(data.getInt(0)));
+                    Log.d("Status Spiel", data.getString(5));
 
-                SharedPreferences sp = context.getSharedPreferences("TaskerPrefs", context.MODE_PRIVATE);
-                int guthaben = sp.getInt("guthaben", 0);
-                Log.d("GUTHABEN", String.valueOf(guthaben));
-                Log.d("VOLUMEN ", String.valueOf(volumen));
-                int neuesGuthaben = guthaben + volumen;
+                    sp.edit().putInt("guthaben", neuesGuthaben).commit();
 
-                Log.d("Status Spiel", data.getString(5));
+                } else {
+                    mDatabaseHelper.updateUserLostGame(data.getInt(0));
 
-                sp.edit().putInt("guthaben", neuesGuthaben).commit();
-
-            } else {
-                mDatabaseHelper.updateUserLostGame(data.getInt(0));
-
+                }
             }
         }
     }

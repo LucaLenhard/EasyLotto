@@ -21,7 +21,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COL6 = "UserGewonnen";
 
     public DatabaseHelper(Context context) {
-        super(context, "/sdcard/"+TABLE_NAME, null, 27);
+        super(context, "/sdcard/"+TABLE_NAME, null, 100);
         SQLiteDatabase.openOrCreateDatabase("/sdcard/"+TABLE_NAME,null);
     }
 
@@ -45,7 +45,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(COL3, Ziehungsdatum);
         contentValues.put(COL4, Volumen);
         contentValues.put(COL5, UserAktiv);
-        contentValues.put(COL6, "");
+        contentValues.put(COL6, "0");
 
         Log.d(TAG, "addData: Adding " + Volumen + Ziehungsdatum + Buyin + UserAktiv
         +" to " + TABLE_NAME);
@@ -68,12 +68,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
     public void addInit() {
-        addData(10000,"19.05.2019",100,0);
-        addData(50000,"27.05.2019",50,0);
-        addData(80000,"28.05.2019",80,0);
-        addData(60000,"29.05.2019",100,0);
-        addData(30000,"24.05.2019",30,0);
-        addData(40000,"20.05.2019",50,0);
+        addData(10000,"19.06.2019",100,0);
+        addData(50000,"27.06.2019",50,0);
+        addData(80000,"28.06.2019",80,0);
+        addData(60000,"29.06.2019",100,0);
+        addData(30000,"24.06.2019",30,0);
+        addData(40000,"20.07.2019",50,0);
 
 
     }
@@ -96,7 +96,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
     public void updateUserLostGame(int Spielnummer){
         SQLiteDatabase db = this.getWritableDatabase();
-        String active = "0";
+        String active = "2";
         String query = "UPDATE " + TABLE_NAME + " SET " + COL6 + " = '"+ active +"' WHERE " + COL1 + " = '" + Spielnummer + "'";
         Log.d(TAG, "update User lost in game" + Spielnummer);
         db.execSQL(query);

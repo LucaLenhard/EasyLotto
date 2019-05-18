@@ -14,8 +14,8 @@ public class Spiel {
         this.buyin = buyin; // Jetzt : BuyIN !!
         this.Ziehungsdatum = Ziehungsdatum;
         this.UserAktiv = useraktiv; ///false; 1 for true
-        this.UserGewonnen =usergewonnen; //false; 1 for true
-    } //Indention is important kids
+        this.UserGewonnen =usergewonnen; //0 == noch nicht gezogen, 1==gewonnen, 2 ==velrloren
+    }
     //Getter
 
     public Integer getVolumen() {

@@ -101,4 +101,29 @@ public class MyGamesActivity extends AppCompatActivity {
         }
     }//onActivityResult
 
+    protected void onStart(Bundle savedInstanceState) {
+        super.onStart();
+        Log.d("started",getClass().getName());
+    }
+
+    protected void onPause(Bundle savedInstanceState) {
+        super.onPause();
+        Log.d("paused", getClass().getName());
+    }
+
+    protected void onDestroy(Bundle savedInstanceState) {
+        super.onDestroy();
+        Log.d("destroyed", getClass().getName());
+    }
+
+    protected void onRestart(Bundle savedInstanceState) {
+        super.onRestart();
+        Log.d("restarted", getClass().getName());
+    }
+
+    protected void onStop(Bundle savedInstanceState) {
+        super.onStop();
+        Log.d("stop", getClass().getName());
+    }
+
 }

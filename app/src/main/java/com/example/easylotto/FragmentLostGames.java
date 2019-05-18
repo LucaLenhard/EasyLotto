@@ -62,7 +62,7 @@ public class FragmentLostGames extends Fragment {
         while(data.moveToNext()) {
             String tempForMethod=data.getString(2);
             GameFunctions.getWinner(data, getContext());
-            if( Integer.parseInt(data.getString(4))==1 && data.getString(5).equals("0")) {
+            if( Integer.parseInt(data.getString(4))==1 && data.getString(5).equals("2")) {
                 lstSpiel.add(new Spiel(data.getString(0), data.getInt(1), data.getString(2), data.getInt(3), data.getInt(4), data.getString(5)));
             }}
 

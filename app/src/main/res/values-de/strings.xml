@@ -5,11 +5,11 @@
     <string name="title_activity_login">Anmelden</string>
     <string name="title_activity_register">Neu Anmelden</string>
     <string name="title_activity_add_game">Neues Spiel</string>
-    <string name="title_activity_my_games">Meine Spiele</string>
+    <string name="title_activity_my_games">EasyLotto</string>
     <string name="title_activity_all_games">Alle Spiele</string>
     <string name="play">Mitspielen</string>
     <string name="Delete">Löschen</string>
-    <string name="title_activity_main">Main</string>
+    <string name="title_activity_main">EasyLotto</string>
     <string name="title_activity_final_login">Login</string>
     <string name="pref_title_vibrate">Vibrate</string>
     <string name="title_activity_settings">Einstellungen</string>

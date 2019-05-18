@@ -67,7 +67,7 @@ public class FragmentAllGames extends Fragment {
 
         while (data.moveToNext()) {
             String tempForMethod=data.getString(2);
-            if(data.getInt(4) == 1 && !GameFunctions.getValid(tempForMethod)&& data.getString(5).equals("") /* nicht abgeschlossenes Spiel*/){
+            if(data.getInt(4) == 1 && !GameFunctions.getValid(tempForMethod)&& data.getString(5).equals("0") /* nicht abgeschlossenes Spiel*/){
                 Log.d("Boolean ", Boolean.toString(GameFunctions.getValid(tempForMethod)));
                 lstSpiel.add(new Spiel(data.getString(0), data.getInt(1), data.getString(2), data.getInt(3), data.getInt(4), data.getString(5)));
             Log.i("TEST", data.getString(1));
