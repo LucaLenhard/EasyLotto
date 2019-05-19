@@ -40,9 +40,17 @@ public class AddGameActivity extends AppCompatActivity {
     DatabaseHelper mDataBaseHelper;
     private TextView mTextViewGuthaben;
 
+    public int counter =0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if (savedInstanceState != null)
+        {
+            counter = savedInstanceState.getInt("counter");
+        }
+
         setContentView(R.layout.activity_add_game);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -152,6 +160,18 @@ public class AddGameActivity extends AppCompatActivity {
     protected void onStop(Bundle savedInstanceState) {
         super.onStop();
         Log.d("stop", getClass().getName());
+    }
+
+    @Override
+    protected void onSaveInstanceState (Bundle outState) {
+        outState.putInt("counter", counter);
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState)
+    {
+        counter = savedInstanceState.getInt("counter");
     }
 
 }

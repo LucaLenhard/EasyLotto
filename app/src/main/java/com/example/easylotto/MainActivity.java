@@ -21,9 +21,19 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     private EditText EditBenutzernameLogin;
     private EditText EditPasswortLogin;
+
+    public int counter =0;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if (savedInstanceState != null)
+        {
+            counter = savedInstanceState.getInt("counter");
+        }
+
         setContentView(R.layout.activity_main);
 
         ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.READ_EXTERNAL_STORAGE }, 1);
@@ -83,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "Benutzername und/oder Passwort falsch", Toast.LENGTH_SHORT).show();
             }
     }
+
     protected void onStart(Bundle savedInstanceState) {
         super.onStart();
         Log.d("started",getClass().getName());
@@ -107,6 +118,19 @@ public class MainActivity extends AppCompatActivity {
         super.onStop();
         Log.d("stop", getClass().getName());
     }
+
+    @Override
+    protected void onSaveInstanceState (Bundle outState) {
+        outState.putInt("counter", counter);
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState)
+    {
+        counter = savedInstanceState.getInt("counter");
+    }
+
 
 
 }

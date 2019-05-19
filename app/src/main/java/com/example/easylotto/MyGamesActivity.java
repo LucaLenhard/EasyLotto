@@ -22,10 +22,18 @@ public class MyGamesActivity extends AppCompatActivity {
     private ViewPager viewpager;
     private ViewPagerAdapter adapter;
 
+    public int counter =0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if (savedInstanceState != null)
+        {
+            counter = savedInstanceState.getInt("counter");
+        }
+
         setContentView(R.layout.activity_my_games);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -125,5 +133,18 @@ public class MyGamesActivity extends AppCompatActivity {
         super.onStop();
         Log.d("stop", getClass().getName());
     }
+
+    @Override
+    protected void onSaveInstanceState (Bundle outState) {
+        outState.putInt("counter", counter);
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState)
+    {
+        counter = savedInstanceState.getInt("counter");
+    }
+
 
 }

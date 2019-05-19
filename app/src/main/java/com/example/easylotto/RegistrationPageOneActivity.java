@@ -16,11 +16,17 @@ public class RegistrationPageOneActivity extends AppCompatActivity {
     private EditText EditBenutzername;
     private EditText EditPasswort;
 
-
+    public int counter =0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if (savedInstanceState != null)
+        {
+            counter = savedInstanceState.getInt("counter");
+        }
+
         setContentView(R.layout.activity_registration_page_one);
 
         Button registration_btn = findViewById(R.id.btn_next);
@@ -91,5 +97,18 @@ public class RegistrationPageOneActivity extends AppCompatActivity {
         super.onStop();
         Log.d("stop", getClass().getName());
     }
+
+    @Override
+    protected void onSaveInstanceState (Bundle outState) {
+        outState.putInt("counter", counter);
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState)
+    {
+        counter = savedInstanceState.getInt("counter");
+    }
+
 
 }

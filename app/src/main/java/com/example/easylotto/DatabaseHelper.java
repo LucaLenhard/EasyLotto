@@ -21,7 +21,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COL6 = "UserGewonnen";
 
     public DatabaseHelper(Context context) {
-        super(context, "/sdcard/"+TABLE_NAME, null, 100);
+        super(context, "/sdcard/"+TABLE_NAME, null, 102);
         SQLiteDatabase.openOrCreateDatabase("/sdcard/"+TABLE_NAME,null);
     }
 
@@ -101,8 +101,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Log.d(TAG, "update User lost in game" + Spielnummer);
         db.execSQL(query);
     }
-
-
 
 //l
 
