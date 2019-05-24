@@ -25,4 +25,9 @@
     <string name="volumen">Volumé</string>
     <string name="max_gewinn">Winé</string>
     <string name="ziehungsdatum">daté</string>
+    <string name="allgames">Baguette</string>
+    <string name="mygames">Baguette</string>
+    <string name="won">Oui</string>
+    <string name="lost">oh non</string>
+    <string name="time_notification">Oui Oui</string>
 </resources>

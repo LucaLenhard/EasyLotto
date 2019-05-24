@@ -20,6 +20,7 @@ import android.preference.PreferenceManager;
 import android.preference.RingtonePreference;
 import android.text.TextUtils;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import java.util.List;
 
@@ -35,6 +36,8 @@ import java.util.List;
  * API Guide</a> for more information on developing a Settings UI.
  */
 public class SettingsActivity extends AppCompatPreferenceActivity {
+
+    private EditTextPreference TextPreference;
 
 
     /**
@@ -189,7 +192,7 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
             // to their values. When their values change, their summaries are
             // updated to reflect the new value, per the Android Design
             // guidelines.
-            bindPreferenceSummaryToValue(findPreference("sync_frequency"));
+            bindPreferenceSummaryToValue(findPreference("delayToNotification"));
 
 
         }
@@ -205,5 +208,9 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
         }
     }
 
+
+        public void getInput() {
+
+        }
 
 }

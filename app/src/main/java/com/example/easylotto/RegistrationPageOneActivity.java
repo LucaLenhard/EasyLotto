@@ -18,6 +18,8 @@ public class RegistrationPageOneActivity extends AppCompatActivity {
 
     public int counter =0;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,7 +51,10 @@ public class RegistrationPageOneActivity extends AppCompatActivity {
 
                     editor.putString("benutzername", Benutzername);
                     editor.putString("passwort", Passwort);
+                    editor.putString("onCreatePassword", Passwort);
+
                     editor.putInt("guthaben", 1000);
+
                     editor.commit();
 
                     Toast.makeText(v.getContext(), "Herzlich Willkommen " + Benutzername, Toast.LENGTH_SHORT).show();
@@ -109,6 +114,8 @@ public class RegistrationPageOneActivity extends AppCompatActivity {
     {
         counter = savedInstanceState.getInt("counter");
     }
+
+
 
 
 }

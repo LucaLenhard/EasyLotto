@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -131,10 +132,18 @@ public class AddGameActivity extends AppCompatActivity {
 
         private void testAlarm() {
 
+
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+            long timenow= System.currentTimeMillis();
+            Long delay = Long.parseLong((prefs.getString("delayToNotification", "60")));
+            long delayTime = timenow + delay;
+
+            Log.d("Input Delay", ""+delayTime);
+
             AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
             Intent intent = new Intent(this, AlertReceiver.class);
             PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 1, intent, 0);
-            alarmManager.set(AlarmManager.RTC_WAKEUP, 100, pendingIntent);
+            alarmManager.set(AlarmManager.RTC_WAKEUP, delayTime, pendingIntent);
         }
 
     protected void onStart(Bundle savedInstanceState) {

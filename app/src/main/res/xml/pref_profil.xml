@@ -2,14 +2,10 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <EditTextPreference
-        android:title="Vornamen ändern"
-        android:key="vorname"
+        android:title="@string/time_notification"
+        android:key="delayToNotification"
         />
-    <EditTextPreference
-        android:title="Nachnamen ändern"
-        android:key="nachname"
 
-        />
 
 
 

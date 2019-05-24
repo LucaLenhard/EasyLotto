@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.os.Environment;
 import android.os.strictmode.SqliteObjectLeakedViolation;
 import android.util.Log;
 
@@ -21,8 +22,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COL6 = "UserGewonnen";
 
     public DatabaseHelper(Context context) {
-        super(context, "/sdcard/"+TABLE_NAME, null, 102);
-        SQLiteDatabase.openOrCreateDatabase("/sdcard/"+TABLE_NAME,null);
+        super(context, Environment.getExternalStorageDirectory().getPath()+"/"+TABLE_NAME, null, 999);
+        SQLiteDatabase.openOrCreateDatabase(Environment.getExternalStorageDirectory().getPath()+"/"+TABLE_NAME,null);
     }
 
     @Override

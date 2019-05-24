@@ -2,7 +2,9 @@ package com.example.easylotto;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -54,15 +56,20 @@ public class MyGamesActivity extends AppCompatActivity {
         viewpager = (ViewPager) findViewById(R.id.viewpager_id);
         adapter = new ViewPagerAdapter(getSupportFragmentManager());
 
-        adapter.AddFragment(new FragmentMyGames(), "Alle Spiele");
-        adapter.AddFragment(new FragmentAllGames(), "Meine Spiele");
-        adapter.AddFragment(new FragmentWonGames(), "Gewonnen");
-        adapter.AddFragment(new FragmentLostGames(), "Verloren");
+        String allgames = getString(R.string.allgames);
+        String mygames = getString(R.string.mygames);
+        String won = getString(R.string.won);
+        String lost = getString(R.string.lost);
+
+
+        adapter.AddFragment(new FragmentMyGames(),allgames);
+        adapter.AddFragment(new FragmentAllGames(), mygames);
+        adapter.AddFragment(new FragmentWonGames(), won);
+        adapter.AddFragment(new FragmentLostGames(), lost);
 
 
         viewpager.setAdapter(adapter);
         tablayout.setupWithViewPager(viewpager);
-
 
     }
     @Override
@@ -94,13 +101,13 @@ public class MyGamesActivity extends AppCompatActivity {
 
         if (requestCode == 1) {
             if(resultCode == Activity.RESULT_OK){
-                Log.d("Erfolgreich", "hinzugefügt");
+                Log.d("nicht Erfolgreich", "hinzugefügt?");
                 finish();
                 startActivity(getIntent());
 
             }
             if (resultCode == Activity.RESULT_CANCELED) {
-                Log.d("Auch Erfolgreich", "hoffe ich");
+                Log.d("Erfolgreich", "hinzugefügt");
                 finish();
                 startActivity(getIntent());
 
@@ -145,6 +152,8 @@ public class MyGamesActivity extends AppCompatActivity {
     {
         counter = savedInstanceState.getInt("counter");
     }
+
+
 
 
 }

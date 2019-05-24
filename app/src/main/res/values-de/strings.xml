@@ -25,4 +25,9 @@
     <string name="volumen">Volumen</string>
     <string name="max_gewinn">Max. Gewinn</string>
     <string name="ziehungsdatum">Ziehungsdatum</string>
+    <string name="allgames">Alle Spiele</string>
+    <string name="mygames">Meine Spiele</string>
+    <string name="lost">Verloren</string>
+    <string name="won">Gewonnen</string>
+    <string name="time_notification">Benachrichtigungszeit</string>
 </resources>

@@ -9,6 +9,8 @@
     android:id="@+id/spiel_item_id"
     >
 
+
+
     <ImageView
         android:layout_width="56dp"
         android:layout_height="56dp"
